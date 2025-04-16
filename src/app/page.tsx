@@ -298,3 +298,4 @@ function CharacterAnalogyGenerator({ avatarDescription, setAvatarDescription, ge
     </Card>
   );
 }
+
