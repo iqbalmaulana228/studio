@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,7 +43,14 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     /* Custom font variables */
-    --font-manga: 'MangaFont', sans-serif;
+    --font-manga: 'Bangers', cursive;
+
+     /* One Piece Theme Colors */
+    --op-primary: #FF5F00;
+    --op-secondary: #0038A8;
+    --op-accent: #FFD700;
+    --op-dark: #1A1A1A;
+    --op-light: #F8F8F8;
   }
 
   .dark {
@@ -89,6 +95,130 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-manga);
   }
 }
+
+/* Custom Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--op-light);
+    color: var(--op-dark);
+}
+
+.manga-font {
+    font-family: var(--font-manga);
+    letter-spacing: 1px;
+}
+
+.manga-panel {
+    background-color: white;
+    border: 3px solid var(--op-dark);
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.manga-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--op-dark),
+        var(--op-dark) 10px,
+        white 10px,
+        white 20px
+    );
+}
+
+.speech-bubble {
+    position: relative;
+    background: white;
+    border: 2px solid var(--op-dark);
+    border-radius: 0.5em;
+    padding: 1em;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: white;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+}
+
+.speech-bubble:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 0;
+    height: 0;
+    border: 22px solid transparent;
+    border-top-color: var(--op-dark);
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -11px;
+    margin-bottom: -22px;
+    z-index: -1;
+}
+
+.progress-bar {
+    height: 1.5rem;
+    background-color: #e0e0e0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--op-primary), var(--op-accent));
+    transition: width 0.5s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.task-item.completed {
+    opacity: 0.7;
+    background-color: #f0f0f0;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+}
+
+.burst {
+    animation: burst 0.5s ease-out;
+}
+
+@keyframes burst {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+
+

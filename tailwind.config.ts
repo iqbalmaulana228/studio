@@ -59,7 +59,12 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+               'op-primary': '#FF5F00',
+                'op-secondary': '#0038A8',
+                'op-accent': '#FFD700',
+                'op-dark': '#1A1A1A',
+                'op-light': '#F8F8F8',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -82,12 +87,27 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+                burst: {
+                    '0%': { transform: 'scale(1)' },
+                    '50%': { transform: 'scale(1.2)' },
+                    '100%': { transform: 'scale(1)' },
+                },
+                shake: {
+                    '0%, 100%': { transform: 'translateX(0)' },
+                    '20%, 60%': { transform: 'translateX(-5px)' },
+                    '40%, 80%': { transform: 'translateX(5px)' },
+                },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
-  		}
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+               burst: 'burst 0.5s ease-out',
+                shake: 'shake 0.5s ease-in-out',
+  		},
+           fontFamily: {
+                'bangers': ['Bangers', 'cursive'],
+            },
   	}
   },
   plugins: [require("tailwindcss-animate")],
